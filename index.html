@@ -105,6 +105,14 @@ header .btn{min-height:44px;font-size:15px;padding:0 18px}
 .ph .lbl{position:absolute;left:18px;right:18px;bottom:16px;z-index:2}
 .ph .lbl b{display:block;font:800 clamp(22px,2.6vw,34px)/.95 'Bricolage Grotesque',sans-serif;text-transform:uppercase}
 .ph .lbl span{font-size:14px;color:#e4dccb}
+.ph .lbl i{display:inline-block;margin-bottom:8px;padding:4px 10px;border-radius:999px;font:800 11px/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-style:normal;background:var(--yellow);color:var(--ink)}
+.ph .lbl i.pt{background:var(--teal)}
+.ph .lbl i.pu{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.key{display:flex;flex-wrap:wrap;gap:10px 18px;margin:-20px 0 32px;font-size:14px;color:#d8d0bd}
+.key i{display:inline-block;margin-right:6px;padding:3px 9px;border-radius:999px;font:800 10px/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-style:normal;background:var(--yellow);color:var(--ink)}
+.key i.pt{background:var(--teal)}
+.key i.pu{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.nx a{color:var(--ink);font-weight:800}
 .p1{grid-column:span 7;aspect-ratio:16/10}
 .p2{grid-column:span 5;min-height:300px}
 .p3{grid-column:span 4;aspect-ratio:4/5}
@@ -259,6 +267,7 @@ footer .so{background:#2c2622}
             <label class="chip"><input type="checkbox" value="Trips"><span>Trips</span></label>
             <label class="chip"><input type="checkbox" value="Activations"><span>Parties and pop-ups</span></label>
             <label class="chip"><input type="checkbox" value="Experiences"><span>Dinners and shows</span></label>
+            <label class="chip"><input type="checkbox" value="Host or partner"><span>Host with BWNC</span></label>
           </div>
           <label class="ck"><input type="checkbox" id="tx"><span>Text me when something drops. Message and data rates may apply. Reply STOP anytime.</span></label>
           <label class="fld" id="phWrap" hidden>Phone<input type="tel" id="ph" autocomplete="tel"></label>
@@ -278,30 +287,31 @@ footer .so{background:#2c2622}
 
 <section class="sec">
   <h2 class="disp big">Where you<br>should've been.</h2>
-  <p class="lead">Real moments from the places we pulled up. The next ones go to the list first.</p>
+  <p class="lead">Black Joy Camp is what we build: camps, cookouts, trips and pop-ups, made by Black With No Chaser and the people we build with. The next ones go to the list first.</p>
+  <div class="key"><span><i>Ours</i>We built it</span><span><i class="pt">Partner</i>Built with people we trust</span><span><i class="pu">Pulled up</i>We showed out. Ours is next, in your city.</span></div>
   <div class="reel">
-<figure class="ph p1 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1ieAtAqHOjG0pn2j37Xy6pAg-VQgSCuIP" alt="Crowd dancing at the Tougaloo Alumni Weekend tailgate" loading="lazy" decoding="async"><figcaption class="lbl"><b>The tailgate</b><span>Tougaloo Alumni Weekend</span></figcaption></figure>
-<figure class="ph p2 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1zcg0Vh-kvnrp2QSih959HBMVI34_qjG4" alt="Woman in an orange bucket hat dancing at night at the Fried Chicken Festival" loading="lazy" decoding="async" style="object-position:45% 30%"><figcaption class="lbl"><b>After dark</b><span>Fried Chicken Festival, New Orleans</span></figcaption></figure>
-<figure class="ph p3 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1AQg22Mpa7UcEkYZrnZ0v2lpJQRWViIMJ" alt="BWNC travelers smiling on a cliff above the ocean in Cape Town" loading="lazy" decoding="async" style="object-position:50% 30%"><figcaption class="lbl"><b>We took the trip</b><span>Cape Town, South Africa</span></figcaption></figure>
-<figure class="ph p4 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1Nw_Qkj50JfEIWxPzYNx4ATKxV7NISlRm" alt="BWNC travelers at a long candlelit dinner table in South Africa" loading="lazy" decoding="async" style="object-position:50% 55%"><figcaption class="lbl"><b>Dinner under the lights</b><span>South Africa</span></figcaption></figure>
-<figure class="ph p5 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1dxH4DlBJIhZesZhaDLlWKllPeSLlP9Ef" alt="Two friends hugging at H Street Festival" loading="lazy" decoding="async" style="object-position:50% 30%"><figcaption class="lbl"><b>Our people</b><span>H Street Festival, DC</span></figcaption></figure>
-<figure class="ph p7 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1LR8_YZRVOCuAU0tku-2IfAN_rzOOEYVj" alt="Friends gathered at a long candlelit table inside the Gatlinburg cabin" loading="lazy" decoding="async" style="object-position:50% 45%"><figcaption class="lbl"><b>Friendsgiving at camp</b><span>Black Joy Camp, Gatlinburg</span></figcaption></figure>
-<figure class="ph p8 reveal" style="margin:0"><video data-src="v-gamenight.mp4" poster="v-gamenight.jpg" muted loop playsinline preload="none" aria-label="Friends laughing around the card table on game night at the Gatlinburg cabin" style="object-position:50% 50%"></video><figcaption class="lbl"><b>Game night</b><span>Black Joy Camp, Gatlinburg</span></figcaption></figure>
-<figure class="ph p10 reveal" style="margin:0"><video data-src="v-pool.mp4" poster="v-pool.jpg" muted loop playsinline preload="none" aria-label="Guests arriving at a backyard pool party with palm trees and a DJ tent" style="object-position:50% 50%"></video><figcaption class="lbl"><b>Pool party</b><span>Sprout Social x BWNC, Essence Fest weekend</span></figcaption></figure>
-<figure class="ph p11 reveal" style="margin:0"><video data-src="v-porch.mp4" poster="v-porch.jpg" muted loop playsinline preload="none" aria-label="CJ on the cabin porch with the Smoky Mountains at sunset" style="object-position:50% 50%"></video><figcaption class="lbl"><b>Mornings at camp</b><span>Black Joy Camp, Gatlinburg</span></figcaption></figure>
-<figure class="ph p12 reveal" style="margin:0"><video data-src="v-tanyell.mp4" poster="v-tanyell.jpg" muted loop playsinline preload="none" aria-label="A bartender handing a fresh mint cocktail to the camera" style="object-position:50% 50%"></video><figcaption class="lbl"><b>First round is ready</b><span>Sprout Social x BWNC, Essence Fest weekend</span></figcaption></figure>
-<figure class="ph p6 reveal" style="margin:0"><video data-src="v-circle.mp4" poster="v-circle.jpg" muted loop playsinline preload="none" aria-label="A dancer in a green jacket in the middle of a cheering dance circle at H Street Festival" style="object-position:50% 50%"></video><figcaption class="lbl"><b>Dance circle</b><span>H Street Festival, DC</span></figcaption></figure>
-<figure class="ph p9 reveal" style="margin:0"><video data-src="v-mint.mp4" poster="v-mint.jpg" muted loop playsinline preload="none" aria-label="The bar glowing under string lights at The Mint" style="object-position:50% 50%"></video><figcaption class="lbl"><b>Under the lights</b><span>The Mint</span></figcaption></figure>
+<figure class="ph p1 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1ieAtAqHOjG0pn2j37Xy6pAg-VQgSCuIP" alt="Crowd dancing at the Tougaloo Alumni Weekend tailgate" loading="lazy" decoding="async"><figcaption class="lbl"><i>Ours</i><b>The tailgate</b><span>BWNC tailgate, Tougaloo Alumni Weekend</span></figcaption></figure>
+<figure class="ph p2 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1zcg0Vh-kvnrp2QSih959HBMVI34_qjG4" alt="Woman in an orange bucket hat dancing at night at the Fried Chicken Festival" loading="lazy" decoding="async" style="object-position:45% 30%"><figcaption class="lbl"><i class="pt">Media partner</i><b>After dark</b><span>Fried Chicken Festival, New Orleans</span></figcaption></figure>
+<figure class="ph p3 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1AQg22Mpa7UcEkYZrnZ0v2lpJQRWViIMJ" alt="BWNC travelers smiling on a cliff above the ocean in Cape Town" loading="lazy" decoding="async" style="object-position:50% 30%"><figcaption class="lbl"><i>Ours</i><b>We took the trip</b><span>BWNC group trip, Cape Town</span></figcaption></figure>
+<figure class="ph p4 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1Nw_Qkj50JfEIWxPzYNx4ATKxV7NISlRm" alt="BWNC travelers at a long candlelit dinner table in South Africa" loading="lazy" decoding="async" style="object-position:50% 55%"><figcaption class="lbl"><i>Ours</i><b>Dinner under the lights</b><span>South Africa</span></figcaption></figure>
+<figure class="ph p5 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1dxH4DlBJIhZesZhaDLlWKllPeSLlP9Ef" alt="Two friends hugging at H Street Festival" loading="lazy" decoding="async" style="object-position:50% 30%"><figcaption class="lbl"><i class="pu">Pulled up</i><b>Our people</b><span>H Street Festival, DC. Building ours next.</span></figcaption></figure>
+<figure class="ph p7 reveal" style="margin:0"><img src="https://lh3.googleusercontent.com/d/1LR8_YZRVOCuAU0tku-2IfAN_rzOOEYVj" alt="Friends gathered at a long candlelit table inside the Gatlinburg cabin" loading="lazy" decoding="async" style="object-position:50% 45%"><figcaption class="lbl"><i>Ours</i><b>Friendsgiving at camp</b><span>Black Joy Camp, Gatlinburg</span></figcaption></figure>
+<figure class="ph p8 reveal" style="margin:0"><video data-src="v-gamenight.mp4" poster="v-gamenight.jpg" muted loop playsinline preload="none" aria-label="Friends laughing around the card table on game night at the Gatlinburg cabin" style="object-position:50% 50%"></video><figcaption class="lbl"><i>Ours</i><b>Game night</b><span>Black Joy Camp, Gatlinburg</span></figcaption></figure>
+<figure class="ph p10 reveal" style="margin:0"><video data-src="v-pool.mp4" poster="v-pool.jpg" muted loop playsinline preload="none" aria-label="Guests arriving at a backyard pool party with palm trees and a DJ tent" style="object-position:50% 50%"></video><figcaption class="lbl"><i>Ours x Sprout Social</i><b>Pool party</b><span>Essence Fest weekend, New Orleans</span></figcaption></figure>
+<figure class="ph p11 reveal" style="margin:0"><video data-src="v-porch.mp4" poster="v-porch.jpg" muted loop playsinline preload="none" aria-label="CJ on the cabin porch with the Smoky Mountains at sunset" style="object-position:50% 50%"></video><figcaption class="lbl"><i>Ours</i><b>Mornings at camp</b><span>Black Joy Camp, Gatlinburg</span></figcaption></figure>
+<figure class="ph p12 reveal" style="margin:0"><video data-src="v-tanyell.mp4" poster="v-tanyell.jpg" muted loop playsinline preload="none" aria-label="A bartender handing a fresh mint cocktail to the camera" style="object-position:50% 50%"></video><figcaption class="lbl"><i>Ours x Sprout Social</i><b>First round is ready</b><span>Essence Fest weekend, New Orleans</span></figcaption></figure>
+<figure class="ph p6 reveal" style="margin:0"><video data-src="v-circle.mp4" poster="v-circle.jpg" muted loop playsinline preload="none" aria-label="A dancer in a green jacket in the middle of a cheering dance circle at H Street Festival" style="object-position:50% 50%"></video><figcaption class="lbl"><i class="pu">Pulled up</i><b>Dance circle</b><span>H Street Festival, DC</span></figcaption></figure>
+<figure class="ph p9 reveal" style="margin:0"><video data-src="v-mint.mp4" poster="v-mint.jpg" muted loop playsinline preload="none" aria-label="The bar glowing under string lights at The Mint" style="object-position:50% 50%"></video><figcaption class="lbl"><i>Ours</i><b>Under the lights</b><span>The Mint</span></figcaption></figure>
   </div>
 </section>
 
 <section class="sec" style="padding-top:0">
   <h2 class="disp big" style="font-size:clamp(38px,6vw,72px)">What's next</h2>
   <div class="next">
-    <div class="nx reveal" style="background:var(--teal)"><small>Camps</small><div><b>Black Joy Camp</b><p>Cabins in the mountains, game night, Friendsgiving and our people. Spots are limited.</p></div></div>
-    <div class="nx reveal" style="background:var(--yellow)"><small>Trips</small><div><b>Passport ready</b><p>Group trips to places that hold our story.</p></div></div>
-    <div class="nx reveal" style="background:var(--orange)"><small>Activations</small><div><b>Pull up</b><p>Festivals, tailgates, pop-ups and parties.</p></div></div>
-    <div class="nx reveal" style="background:var(--blush)"><small>Experiences</small><div><b>Grown and sexy</b><p>Dinners, live shows and nights worth leaving the house for.</p></div></div>
+    <div class="nx reveal" style="background:var(--teal)"><small>Camps</small><div><b>Black Joy Camp</b><p>Cabins, game night, Friendsgiving and our people. We host. You pull up.</p></div></div>
+    <div class="nx reveal" style="background:var(--orange)"><small>Activations</small><div><b>The Cookout</b><p>Our table, your city. Food, music and the people you've been meaning to link with.</p></div></div>
+    <div class="nx reveal" style="background:var(--yellow)"><small>Trips</small><div><b>Passport ready</b><p>Group trips with Very Fly Life to places that hold our story.</p></div></div>
+    <div class="nx reveal" style="background:var(--blush)"><small>Hosts and partners</small><div><b>Build one with us</b><p>Run a club, throw events or have a brand that wants in? Host an experience with BWNC. <a href="#join" target="_self">Join the list</a> and tap "Host with BWNC."</p></div></div>
   </div>
 </section>
 
