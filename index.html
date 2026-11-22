@@ -86,6 +86,13 @@ header .btn{min-height:44px;font-size:15px;padding:0 18px}
 .row2{display:flex;gap:10px;flex-wrap:wrap}
 .row2 .btn{flex:1 1 150px;min-height:50px;font-size:15px}
 .saved{font-weight:700;color:var(--teal-d);font-size:14px;margin:10px 0 0}
+.fld select{display:block;width:100%;margin-top:6px;font:400 17px 'DM Sans',sans-serif;padding:13px 16px;min-height:52px;border:2px solid #CFC8B8;border-radius:14px;background:#fff;color:var(--ink)}
+.fld select:focus{outline:none;border-color:var(--teal-d);box-shadow:0 0 0 4px rgba(79,160,178,.3)}
+.hoststep{margin-top:22px;padding-top:20px;border-top:2px dashed #CFC8B8}
+.hoststep h3{margin:0 0 6px;font-size:22px;font-family:'Bricolage Grotesque',sans-serif}
+.hoststep .sub2{margin:0 0 14px;font-size:14.5px;line-height:1.45;color:#4a443f}
+.pp{margin:-4px 0 18px;text-align:center;font-weight:700;font-size:15px}
+.pp a{color:var(--ink)}
 
 .strip{background:var(--yellow);color:var(--ink);overflow:hidden;white-space:nowrap;padding:16px 0}
 .strip .m{display:inline-block;font:800 clamp(22px,3vw,30px) 'Bricolage Grotesque',sans-serif;text-transform:uppercase;animation:mq 32s linear infinite}
@@ -232,6 +239,7 @@ footer .so{background:#2c2622}
     <div class="card" id="join">
       <form id="f" novalidate>
         <div class="invited" id="invited">Your people sent you. Sign up and you both move up the list.</div>
+        <div class="invited" id="hostban">Hosts start here. Save your spot, then tell us about your community.</div>
         <h2 class="disp">Save my spot</h2>
         <p class="sub">Free. Takes ten seconds.</p>
         <div class="perk"><span>&#9733;</span><span><b>First dibs</b> on camp spots, plus a <b>bwncshop.com discount</b> when you join.</span></div>
@@ -247,6 +255,7 @@ footer .so{background:#2c2622}
       <div class="done" id="done" role="status">
         <h2 class="disp">You're in.</h2>
         <div class="coupon" id="coupon"></div>
+        <p class="pp"><a id="pplink" href="/passport/" target="_self">See your Passport &rarr;</a></p>
         <div class="ref" id="refbox">
           <h3>Bring your people</h3>
           <p class="sub2">Every friend who signs up with your link moves you up the list.</p>
@@ -277,6 +286,21 @@ footer .so{background:#2c2622}
             <button class="btn red" id="go2" type="button">Save</button>
           </div>
           <p class="saved" id="msg" aria-live="polite"></p>
+        </div>
+        <div class="hoststep" id="hoststep" hidden>
+          <h3>Host with BWNC</h3>
+          <p class="sub2">Tell us about the community you've built. We'll reach out about hosting together and partner-backed experiences.</p>
+          <label class="fld">Community or club name<input type="text" id="h_comm" maxlength="160" placeholder="Jackson Run Club"></label>
+          <label class="fld">What do you gather people around?<input type="text" id="h_gather" maxlength="200" placeholder="Run club, supper club, book club, day parties"></label>
+          <label class="fld">City and state<input type="text" id="h_city" maxlength="80" autocomplete="address-level2" placeholder="Jackson, MS"></label>
+          <label class="fld">Where do you run your events?<select id="h_tool"><option value="">Pick one</option><option>Luma</option><option>Posh</option><option>Eventbrite</option><option>Partiful</option><option>Instagram DMs</option><option>Other</option></select></label>
+          <label class="fld">How often do you host?<select id="h_freq"><option value="">Pick one</option><option>Weekly</option><option>Twice a month</option><option>Monthly</option><option>A few times a year</option><option>Just getting started</option></select></label>
+          <label class="fld">How many people usually pull up?<select id="h_turn"><option value="">Pick one</option><option>Under 25</option><option>25 to 50</option><option>50 to 150</option><option>150 to 500</option><option>500 or more</option></select></label>
+          <label class="fld">Your main social handle <span class="opt">(optional)</span><input type="text" id="h_handle" maxlength="120" placeholder="@yourclub"></label>
+          <label class="fld">Followers across your platforms <span class="opt">(optional)</span><select id="h_reach"><option value="">Pick one</option><option>Under 5K</option><option>5K to 25K</option><option>25K to 100K</option><option>100K to 500K</option><option>500K or more</option></select></label>
+          <p class="err" id="err3" role="alert"></p>
+          <button class="btn red" id="go3" type="button" style="width:100%">Send it</button>
+          <p class="saved" id="msg3" aria-live="polite"></p>
         </div>
       </div>
     </div>
@@ -311,7 +335,7 @@ footer .so{background:#2c2622}
     <div class="nx reveal" style="background:var(--teal)"><small>Camps</small><div><b>Black Joy Camp</b><p>Cabins, game night, Friendsgiving and our people. We host. You pull up.</p></div></div>
     <div class="nx reveal" style="background:var(--orange)"><small>Activations</small><div><b>The Cookout</b><p>Our table, your city. Food, music and the people you've been meaning to link with.</p></div></div>
     <div class="nx reveal" style="background:var(--yellow)"><small>Trips</small><div><b>Passport ready</b><p>Group trips with Very Fly Life to places that hold our story.</p></div></div>
-    <div class="nx reveal" style="background:var(--blush)"><small>Hosts and partners</small><div><b>Build one with us</b><p>Run a club, throw events or have a brand that wants in? Host an experience with BWNC. <a href="#join" target="_self">Join the list</a> and tap "Host with BWNC."</p></div></div>
+    <div class="nx reveal" style="background:var(--blush)"><small>Hosts and partners</small><div><b>Build one with us</b><p>Run a club, throw events or have a brand that wants in? Host an experience with BWNC. <a href="/?host=1#join" target="_self">Hosts start here</a>.</p></div></div>
   </div>
 </section>
 
@@ -362,6 +386,15 @@ footer .so{background:#2c2622}
   try { if (!incoming) incoming = new URLSearchParams(location.search).get('ref') || ''; } catch(x){}
   incoming = incoming.replace(/[^A-Za-z0-9-]/g,'').slice(0,24);
   if (incoming) document.getElementById('invited').classList.add('show');
+  var hostMode = false;
+  try { hostMode = new URLSearchParams(location.search).get('host') === '1'; } catch(x){}
+  if (hostMode){ document.getElementById('hostban').classList.add('show'); document.getElementById('invited').classList.remove('show'); }
+  function showHost(){
+    var hs = document.getElementById('hoststep'); if (!hs.hidden) return;
+    hs.hidden = false;
+    if (S.city && !document.getElementById('h_city').value) document.getElementById('h_city').value = S.city;
+    setTimeout(function(){ hs.scrollIntoView({behavior:'smooth', block:'start'}); }, 150);
+  }
   function makeCode(name){
     var first = (name.split(' ')[0] || 'joy').replace(/[^A-Za-z]/g,'').toUpperCase().slice(0,10) || 'JOY';
     var abc = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789', r = '';
@@ -418,7 +451,7 @@ footer .so{background:#2c2622}
 
   function run(d, ok, bad){
     if (window.google && google.script && google.script.run){
-      google.script.run.withSuccessHandler(ok).withFailureHandler(function(x){ bad(x && x.message ? x.message : 'Try again.'); }).submitJoy(d);
+      var r = google.script.run.withSuccessHandler(ok).withFailureHandler(function(x){ bad(x && x.message ? x.message : 'Try again.'); }); if (d.kind === 'host') r.submitHost(d); else r.submitJoy(d);
       return;
     }
     fetch(ENDPOINT, {method:'POST', body: JSON.stringify(d)})
@@ -459,8 +492,10 @@ footer .so{background:#2c2622}
         var rm = document.getElementById('refMsg');
         document.getElementById('copyLink').onclick = function(){ copy(my, rm, 'Your link is copied. Send it to the group chat.'); };
         shareButtons(document.getElementById('shareRow'), my, rm);
+        document.getElementById('pplink').href = '/passport/?c=' + encodeURIComponent(S.code);
         document.getElementById('done').classList.add('show');
         confetti();
+        if (hostMode){ var hc = document.querySelector('.chips input[value="Host or partner"]'); if (hc) hc.checked = true; showHost(); }
       },
       function(m){ go.disabled = false; go.textContent = "I'm in"; err.textContent = 'Something went wrong. ' + m; });
   });
@@ -476,8 +511,20 @@ footer .so{background:#2c2622}
     var ss = document.getElementById('ss').checked;
     b.disabled = true; b.textContent = 'Saving...';
     run({'Full name':S.name,'Email':S.email,'Phone':tx.checked ? phone : '','City and state':S.city,'What are you excited about?':picks,'How did you hear about us?':'','Referral code':S.code,'Referred by':incoming,'emailOk':true,'textOk':tx.checked,'stackOk':ss,'final':true},
-      function(){ b.disabled = false; b.textContent = 'Saved'; msg.textContent = ss ? 'Saved. Tap Subscribe free below to finish your Substack membership.' : 'Saved. See you soon.'; if (ss) document.getElementById('substack').scrollIntoView({behavior:'smooth'}); },
+      function(){ b.disabled = false; b.textContent = 'Saved'; var wantsHost = picks.indexOf('Host or partner') > -1; msg.textContent = wantsHost ? 'Saved. One more step for hosts below.' : (ss ? 'Saved. Tap Subscribe free below to finish your Substack membership.' : 'Saved. See you soon.'); if (wantsHost) showHost(); else if (ss) document.getElementById('substack').scrollIntoView({behavior:'smooth'}); },
       function(m){ b.disabled = false; b.textContent = 'Save'; e2.textContent = 'Something went wrong. ' + m; });
+  });
+
+  document.getElementById('go3').addEventListener('click', function(){
+    var e3 = document.getElementById('err3'), b = this, msg = document.getElementById('msg3'); e3.textContent = ''; msg.textContent = '';
+    function v(id){ return document.getElementById(id).value.trim(); }
+    var d = {kind:'host', code:S.code, name:S.name, email:S.email, community:v('h_comm'), gather:v('h_gather'), city:v('h_city'), tool:v('h_tool'), freq:v('h_freq'), turnout:v('h_turn'), handle:v('h_handle'), reach:v('h_reach'), source: hostMode ? 'Host link' : 'Sign-up'};
+    if (!d.community) return e3.textContent = 'Add your community or club name.';
+    if (!d.gather) return e3.textContent = 'Tell us what you gather people around.';
+    if (!d.tool || !d.freq || !d.turnout) return e3.textContent = 'Pick where you run events, how often and how many pull up.';
+    b.disabled = true; b.textContent = 'Sending...';
+    run(d, function(){ b.textContent = 'Sent'; msg.textContent = "You're on the founding hosts list. We'll be in touch."; },
+      function(m){ b.disabled = false; b.textContent = 'Send it'; e3.textContent = 'Something went wrong. ' + m; });
   });
 
 })();
