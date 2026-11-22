@@ -385,7 +385,9 @@ footer .so{background:#2c2622}
   var incoming = (window.JOY_REF && window.JOY_REF.indexOf('%%') !== 0) ? window.JOY_REF : '';
   try { if (!incoming) incoming = new URLSearchParams(location.search).get('ref') || ''; } catch(x){}
   incoming = incoming.replace(/[^A-Za-z0-9-]/g,'').slice(0,24);
-  if (incoming) document.getElementById('invited').classList.add('show');
+  /* IG-/FB- codes mark the channel a person came from (ManyChat links), not a friend's invite */
+  var fromChannel = /^(IG|FB)-/i.test(incoming);
+  if (incoming && !fromChannel) document.getElementById('invited').classList.add('show');
   var hostMode = false;
   try { hostMode = new URLSearchParams(location.search).get('host') === '1'; } catch(x){}
   if (hostMode){ document.getElementById('hostban').classList.add('show'); document.getElementById('invited').classList.remove('show'); }
