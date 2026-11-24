@@ -537,7 +537,7 @@ footer .so{background:#2c2622}
     }
     fetch(ENDPOINT, {method:'POST', body: JSON.stringify(d)})
       .then(function(r){ return r.json(); })
-      .then(function(j){ if (j && j.ok) ok(); else bad((j && j.error) || 'Try again.'); })
+      .then(function(j){ if (j && j.ok) ok(j); else bad((j && j.error) || 'Try again.'); })
       .catch(function(){ bad('Check your connection and try again.'); });
   }
   function confetti(){
@@ -561,7 +561,8 @@ footer .so{background:#2c2622}
     go.disabled = true; go.textContent = 'Saving your spot...';
     S.code = makeCode(S.name);
     run({'Full name':S.name,'Email':S.email,'Phone':'','City and state':S.city,'What are you excited about?':[],'How did you hear about us?':'','Referral code':S.code,'Referred by':incoming,'emailOk':true,'textOk':false,'stackOk':false,'final':false},
-      function(){
+      function(res){
+        if (res && res.code) S.code = res.code;
         joined = true; onScroll();
         f.style.display = 'none';
         var cp = document.getElementById('coupon');
