@@ -94,6 +94,30 @@ header .btn{min-height:44px;font-size:15px;padding:0 18px}
 .pp{margin:-4px 0 18px;text-align:center;font-weight:700;font-size:15px}
 .pp a{color:var(--ink)}
 
+.live{display:none;align-items:center;gap:10px;margin-top:18px;background:rgba(31,26,23,.7);border:2px solid var(--yellow);border-radius:999px;padding:10px 16px;font-weight:700;font-size:15px;width:fit-content;max-width:100%}
+.live.on{display:inline-flex}
+.live .dot{width:10px;height:10px;border-radius:50%;background:#5BD18B;box-shadow:0 0 0 0 rgba(91,209,139,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(91,209,139,.7)}70%{box-shadow:0 0 0 10px rgba(91,209,139,0)}100%{box-shadow:0 0 0 0 rgba(91,209,139,0)}}
+.live b{color:var(--yellow)}
+.road{display:none;background:var(--cream);color:var(--ink)}
+.road.on{display:block}
+.road .in2{max-width:1100px;margin:0 auto;padding:56px 22px}
+.road h2{font-size:clamp(40px,6vw,72px);margin:0 0 6px}
+.road .sub{margin:0 0 26px;font-size:17px;max-width:620px}
+.big{font:800 clamp(56px,10vw,120px)/.9 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em}
+.bar{height:22px;border-radius:999px;background:#E0D8BE;overflow:hidden;margin:14px 0 8px;border:2px solid var(--ink)}
+.bar i{display:block;height:100%;width:0;background:var(--orange);transition:width 1.2s ease}
+.barl{display:flex;justify-content:space-between;font-weight:700;font-size:14px}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px}
+.rcard{background:#fff;border:2px solid var(--ink);border-radius:22px;padding:20px}
+.rcard h3{margin:0 0 12px;font:800 20px 'Bricolage Grotesque',sans-serif;text-transform:uppercase}
+.rcard ol{margin:0;padding-left:22px}
+.rcard li{margin:6px 0;font-size:16px}
+.rcard li b{float:right}
+.lock{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.lock .q{font:800 44px/1 'Bricolage Grotesque',sans-serif;color:var(--yellow);margin:4px 0 8px}
+.done{list-style:none;padding:0!important}
+.done li:before{content:"\2713  ";color:var(--teal-d);font-weight:800}
 .strip{background:var(--yellow);color:var(--ink);overflow:hidden;white-space:nowrap;padding:16px 0}
 .strip .m{display:inline-block;font:800 clamp(22px,3vw,30px) 'Bricolage Grotesque',sans-serif;text-transform:uppercase;animation:mq 32s linear infinite}
 .strip .m i{font-style:normal;color:var(--red);margin:0 18px}
@@ -234,6 +258,7 @@ footer .so{background:#2c2622}
       <span class="tag">Black Joy Camps &middot; Trips &middot; Activations</span>
       <h1 class="disp">Don't hear<br>about it <em>later.</em></h1>
       <p>Camps, trips and parties built for us by Black With No Chaser. Get on the list and you hear first, before spots open to everybody.</p>
+      <div class="live" id="livePill" aria-live="polite"><span class="dot"></span><span><b id="liveN">0</b> on the list &middot; next unlock at <b id="liveNext">100</b></span></div>
     </div>
 
     <div class="card" id="join">
@@ -309,6 +334,23 @@ footer .so{background:#2c2622}
 
 <div class="strip" aria-hidden="true"><div class="m">Black Joy Camp<i>&#9679;</i>Tougaloo Alumni Weekend<i>&#9679;</i>Fried Chicken Fest<i>&#9679;</i>The Mint<i>&#9679;</i>Essence Fest<i>&#9679;</i>H Street<i>&#9679;</i>Cape Town<i>&#9679;</i>You next<i>&#9679;</i>Black Joy Camp<i>&#9679;</i>Tougaloo Alumni Weekend<i>&#9679;</i>Fried Chicken Fest<i>&#9679;</i>The Mint<i>&#9679;</i>Essence Fest<i>&#9679;</i>H Street<i>&#9679;</i>Cape Town<i>&#9679;</i>You next<i>&#9679;</i></div></div>
 
+<section class="road" id="road" aria-labelledby="roadh">
+  <div class="in2">
+    <h2 class="disp" id="roadh">Road to 100K</h2>
+    <p class="sub">Every sign-up moves all of us. Every benchmark unlocks something, and you find out what when we get there.</p>
+    <div class="big" id="rTotal">0</div>
+    <div class="bar" role="progressbar" aria-label="Progress to the next unlock" aria-valuemin="0" aria-valuemax="100" id="rBarWrap"><i id="rBar"></i></div>
+    <div class="barl"><span id="rPrev">0</span><span id="rLeft"></span><span id="rNext">100</span></div>
+    <div class="rgrid">
+      <div class="rcard lock"><h3>Next unlock</h3><div class="q">???</div><p style="margin:0">Revealed at <b id="rNext2">100</b>. Bring your people and we get there faster.</p></div>
+      <div class="rcard"><h3>City race</h3><ol id="rCities"></ol><p style="margin:12px 0 0;font-size:14px">The city with the most Passports gets the first Black Joy Camp.</p></div>
+      <div class="rcard" id="rRecWrap"><h3>Bringing their people</h3><ol id="rRec"></ol><p style="margin:12px 0 0;font-size:14px">Share your link from your Passport to get on this list.</p></div>
+      <div class="rcard" id="rDoneWrap" style="display:none"><h3>Unlocked</h3><ul class="done" id="rDone"></ul></div>
+    </div>
+    <p style="margin:22px 0 0;font-size:13px;opacity:.7">Live count of unique sign-ups. Updated <span id="rUpd"></span>.</p>
+  </div>
+</section>
+
 <section class="sec">
   <h2 class="disp big">Where you<br>should've been.</h2>
   <p class="lead">Black Joy Camp is what we build: camps, cookouts, trips and pop-ups, made by Black With No Chaser and the people we build with. The next ones go to the list first.</p>
@@ -381,6 +423,43 @@ footer .so{background:#2c2622}
   var COUPON = 'BJC100K';
   var LIVE = 'https://blackjoycamp.com/';
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzrqDWe7H51sJEat12b6H-U5dxKhtluh0JeWDgj8Ofpu7FUwnZFD97D7-GlVykEYMYFEw/exec';
+
+  /* Road to 100K: shows only when the stats endpoint answers */
+  (function(){
+    var UNLOCKED = {100:'Nominations open: who in your city deserves a blessing', 250:'You vote on the first Black Joy Camp concept', 500:'Founders beanie colorway revealed, first access for the list'};
+    function fmt(n){ return Number(n).toLocaleString('en-US'); }
+    function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function load(){
+      fetch(ENDPOINT + '?page=stats', {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
+        if (!d || !d.ok || typeof d.total !== 'number') return;
+        var next = d.next || d.total, prev = d.prev || 0;
+        document.getElementById('liveN').textContent = fmt(d.total);
+        document.getElementById('liveNext').textContent = fmt(next);
+        document.getElementById('livePill').classList.add('on');
+        document.getElementById('rTotal').textContent = fmt(d.total);
+        document.getElementById('rPrev').textContent = fmt(prev);
+        document.getElementById('rNext').textContent = fmt(next);
+        document.getElementById('rNext2').textContent = fmt(next);
+        document.getElementById('rLeft').textContent = d.next ? fmt(d.next - d.total) + ' to go' : 'All unlocked';
+        var pct = d.next ? Math.max(3, Math.min(100, (d.total - prev) / (d.next - prev) * 100)) : 100;
+        document.getElementById('rBarWrap').setAttribute('aria-valuenow', Math.round(pct));
+        setTimeout(function(){ document.getElementById('rBar').style.width = pct + '%'; }, 200);
+        document.getElementById('rCities').innerHTML = (d.cities || []).map(function(c){ return '<li>' + esc(c.name) + ' <b>' + fmt(c.n) + '</b></li>'; }).join('');
+        var rec = (d.recruiters || []);
+        document.getElementById('rRec').innerHTML = rec.map(function(c){ return '<li>' + esc(c.first) + (c.city ? ', ' + esc(c.city) : '') + ' <b>' + fmt(c.n) + '</b></li>'; }).join('');
+        if (!rec.length) document.getElementById('rRecWrap').style.display = 'none';
+        var done = Object.keys(UNLOCKED).filter(function(k){ return d.total >= +k; });
+        if (done.length) {
+          document.getElementById('rDone').innerHTML = done.map(function(k){ return '<li><b>' + fmt(k) + ':</b> ' + esc(UNLOCKED[k]) + '</li>'; }).join('');
+          document.getElementById('rDoneWrap').style.display = '';
+        }
+        document.getElementById('rUpd').textContent = d.updated || 'just now';
+        document.getElementById('road').classList.add('on');
+      }).catch(function(){});
+    }
+    load();
+    setInterval(load, 120000);
+  })();
   var IC = {"sms": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" d=\"M4 5h16v11H9l-5 4z\"/></svg>", "wa": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" d=\"M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z\"/><path fill=\"currentColor\" d=\"M9 7.8c.3-.2.7-.2.9.1l.9 1.9c.1.3 0 .6-.2.8l-.5.5c.5 1.1 1.5 2.1 2.6 2.6l.5-.5c.2-.2.5-.3.8-.2l1.9.9c.3.2.4.6.1.9-.6.9-1.5 1.3-2.6 1-2.6-.8-4.6-2.8-5.4-5.4-.3-1.1.2-2 1-2.6z\"/></svg>", "fb": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M13.5 21v-7.5H16l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5h1.5V4.5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.3H8v3h2.6V21h2.9z\"/></svg>", "x": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z\"/></svg>", "link": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" d=\"M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1\"/></svg>", "more": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 3v12M7 8l5-5 5 5M5 13v6h14v-6\"/></svg>"};
   var incoming = (window.JOY_REF && window.JOY_REF.indexOf('%%') !== 0) ? window.JOY_REF : '';
   try { if (!incoming) incoming = new URLSearchParams(location.search).get('ref') || ''; } catch(x){}
