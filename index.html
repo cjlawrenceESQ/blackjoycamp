@@ -421,6 +421,7 @@ footer .so{background:#2c2622}
 (function(){
   /* Set this once Chuck creates the code in Shopify, e.g. 'JOY15'. Leave '' until then. */
   var COUPON = 'BJC100K';
+  var SHOP_URL = 'https://bwncshop.com/discount/' + COUPON + '?redirect=/collections/culture-edit&utm_source=blackjoycamp&utm_medium=signup';
   var LIVE = 'https://blackjoycamp.com/';
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzrqDWe7H51sJEat12b6H-U5dxKhtluh0JeWDgj8Ofpu7FUwnZFD97D7-GlVykEYMYFEw/exec';
 
@@ -567,7 +568,7 @@ footer .so{background:#2c2622}
         f.style.display = 'none';
         var cp = document.getElementById('coupon');
         cp.innerHTML = COUPON
-          ? '<small>Your bwncshop.com code</small><div class="code">' + COUPON + '</div><p>Use it at checkout on <a href="https://bwncshop.com">bwncshop.com</a>. Thank you for rolling with us.</p>'
+          ? '<small>Your bwncshop.com code</small><div class="code">' + COUPON + '</div><p>25% off at <a href="https://bwncshop.com">bwncshop.com</a>, plus free shipping on orders over $75. Tap below and it\'s already applied at checkout.</p><a class="btn red" id="shopNow" style="width:100%;margin-top:14px" href="' + SHOP_URL + '">Shop now with 25% off &rarr;</a>'
           : '<small>Thank you for rolling with us</small><p>Your <b>bwncshop.com</b> discount code is headed to your inbox.</p>';
         var my = LIVE + '?ref=' + S.code;
         document.getElementById('mylink').textContent = my;
